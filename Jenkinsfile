@@ -28,7 +28,7 @@ pipeline{
                 script{
                     kubernetesDeploy(
                         configs: "pod.yml",
-                        kubeconfigID: "kuberenetes_config",
+                        kubeconfigId: "kuberenetes_config",
                         enableConfigSubstitution: true
                     )
                 }
