@@ -9,7 +9,7 @@ pipeline{
         }
         stage('build'){
             steps{
-                bat "docker build -t project2 ."
+                bat "docker build -t gopikrishna99899/project2:${env.BUILD_NUMBER} ."
             }
         }
         stage('docker login and push'){
