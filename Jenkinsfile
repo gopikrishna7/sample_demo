@@ -10,6 +10,7 @@ pipeline{
         stage('build'){
             steps{
                 bat "docker build -t project2 ."
+                bat "docker scan project2"
             }
         }
     }
