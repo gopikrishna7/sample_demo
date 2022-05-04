@@ -25,13 +25,7 @@ pipeline{
         }
         stage('deploy to k8'){
             steps{
-                script{
-                    kubernetesDeploy(
-                        configs: "pod.yml",
-                        kubeconfigId: "kuberenetes_config",
-                        enableConfigSubstitution: true
-                    )
-                }
+                bat "ssh -o StrictHostKeyCheking=no ubuntu@ec2-43-204-96-226.ap-south-1.compute.amazonaws.com kubectl apply -f pod.yml"
             }
             
         }

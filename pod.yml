@@ -10,3 +10,4 @@ spec:
     image: gopikrishna99899/project2:9
     ports:
       - containerPort: 80
+---
