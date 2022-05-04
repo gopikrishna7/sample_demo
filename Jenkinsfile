@@ -25,7 +25,7 @@ pipeline{
         }
         stage('deploy to k8'){
             steps{
-                bat "ssh -o StrictHostKeyCheking=no ubuntu@ec2-43-204-96-226.ap-south-1.compute.amazonaws.com kubectl apply -f pod.yml"
+                bat "ssh -o 'StrictHostKeyCheking=no' ubuntu@ec2-43-204-96-226.ap-south-1.compute.amazonaws.com kubectl apply -f pod.yml"
             }
             
         }
