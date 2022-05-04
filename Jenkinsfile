@@ -9,7 +9,7 @@ pipeline{
         }
         stage('build'){
             steps{
-                bat "docker build -t gopikrishna99899/project2:${env.BUILD_NUMBER} ."
+                sh "docker build -t gopikrishna99899/project:${env.BUILD_NUMBER} ."
             }
         }
         stage('docker login and push'){
@@ -17,15 +17,15 @@ pipeline{
                 SERVER_CRED=credentials('dockerhub')
             }
             steps{
-                bat "docker login -u gopikrishna99899 -p ${SERVER_CRED_PSW}"
-                bat "docker push gopikrishna99899/project2:${env.BUILD_NUMBER}"
+                sh "docker login -u gopikrishna99899 -p ${SERVER_CRED_PSW}"
+                sh "docker push gopikrishna99899/project:${env.BUILD_NUMBER}"
             }
 
 
         }
         stage('deploy to k8'){
             steps{
-                bat '''ssh -o \'StrictHostKeyChecking=no\' ubuntu@ec2-43-204-96-226.ap-south-1.compute.amazonaws.com kubectl apply -f pod.yml'''
+                sh "kubectl apply -f pod.yml"
             }
             
         }
