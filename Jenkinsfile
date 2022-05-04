@@ -23,5 +23,17 @@ pipeline{
 
 
         }
+        stage('deploy to k8'){
+            steps{
+                script{
+                    kubernetesDeploy(
+                        configs: "pod.yml",
+                        kubeconfigID: "kuberenetes_config"
+                        enableConfigSubstitution: true
+                    )
+                }
+            }
+            
+        }
     }
 }
