@@ -7,7 +7,8 @@ metadata:
 spec:
   containers:
   - name: myapp-pod
-    image: gopikrishna99899/project2:9
+    #image: gopikrishna99899/project2:9
+    image: nginx
     ports:
       - containerPort: 80
 ---
